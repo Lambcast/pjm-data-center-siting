@@ -1,0 +1,38 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node / Vite (frontend)
+node_modules/
+dist/
+.vite/
+
+# DuckDB local files
+*.duckdb
+*.duckdb.wal
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw data (keep directory tracked via .gitkeep, ignore everything else)
+data/raw/*
+!data/raw/.gitkeep

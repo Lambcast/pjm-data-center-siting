@@ -1,0 +1,25 @@
+[project]
+name = "pjm-data-center-siting"
+version = "0.1.0"
+description = "PJM data center siting optimization model with policy risk and carbon pricing"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Alan Lamb", email = "alandaniellamb2@gmail.com" },
+]
+dependencies = [
+    "duckdb>=1.5.2",
+    "matplotlib>=3.10.9",
+    "numpy>=2.4.5",
+    "pandas>=3.0.3",
+    "pyarrow>=24.0.0",
+    "python-dotenv>=1.2.2",
+    "requests>=2.34.2",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+    "pytest>=9.0.3",
+    "ruff>=0.15.13",
+]
