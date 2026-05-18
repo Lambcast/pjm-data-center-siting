@@ -36,3 +36,7 @@ Thumbs.db
 # Raw data (keep directory tracked via .gitkeep, ignore everything else)
 data/raw/*
 !data/raw/.gitkeep
+
+# Reference PDFs (keep README tracked, ignore PDFs for copyright reasons)
+docs/references_pdfs/*
+!docs/references_pdfs/README.md
