@@ -1,5 +1,9 @@
 % References for the PJM data center siting project.
 
+% =============================================================================
+% Direct competitors and rank-inference methodology
+% =============================================================================
+
 @misc{shao_2025_pjm_siting,
   author        = {Shao, Zhentong and Yu, Nanpeng and Wong, Daniel},
   title         = {Stochastic Long-Term Joint Decarbonization Planning for Power Systems and Data Centers: A Case Study in {PJM}},
@@ -12,17 +16,497 @@
   url           = {https://arxiv.org/abs/2510.25118}
 }
 
+@misc{kim_2026_flexibility_siting,
+  author        = {Kim, Dongjoo and Dong, Lin and Xie, Le},
+  title         = {Flexibility-Aware Framework for Efficient Planner-Initiated Siting of Data Center},
+  year          = {2026},
+  month         = may,
+  howpublished  = {arXiv preprint arXiv:2605.14714},
+  eprint        = {2605.14714},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.SY},
+  url           = {https://arxiv.org/abs/2605.14714}
+}
+
+@techreport{mogstad_2020_ranks_nber,
+  author      = {Mogstad, Magne and Romano, Joseph P. and Shaikh, Azeem and Wilhelm, Daniel},
+  title       = {Inference for Ranks with Applications to Mobility Across Neighborhoods and Academic Achievement Across Countries},
+  institution = {National Bureau of Economic Research},
+  number      = {26883},
+  type        = {NBER Working Paper},
+  year        = {2020},
+  month       = mar,
+  url         = {https://www.nber.org/papers/w26883},
+  note        = {NBER Working Paper version, originally issued March 2020; most recent revision January 2022. Later published in revised form as Mogstad et al. (2024) in Review of Economic Studies. Cited here where the preprint chronology matters.}
+}
+
+@article{mogstad_2024_ranks_restud,
+  author  = {Mogstad, Magne and Romano, Joseph P. and Shaikh, Azeem and Wilhelm, Daniel},
+  title   = {Inference for Ranks with Applications to Mobility across Neighborhoods and Academic Achievement across Countries},
+  journal = {Review of Economic Studies},
+  volume  = {91},
+  number  = {1},
+  pages   = {476--518},
+  year    = {2024},
+  doi     = {10.1093/restud/rdad006},
+  url     = {https://academic.oup.com/restud/article/91/1/476/7008208},
+  note    = {Canonical published version. Main methodological reference for the rank inference procedure used in this project.}
+}
+
+@article{mogstad_2022_journals_aeapp,
+  author  = {Mogstad, Magne and Romano, Joseph P. and Shaikh, Azeem and Wilhelm, Daniel},
+  title   = {Statistical Uncertainty in the Ranking of Journals and Universities},
+  journal = {AEA Papers and Proceedings},
+  volume  = {112},
+  pages   = {630--634},
+  year    = {2022},
+  month   = may,
+  doi     = {10.1257/pandp.20221064},
+  url     = {https://www.aeaweb.org/articles?id=10.1257/pandp.20221064},
+  note    = {Companion AEA P\&P paper applying the rank-confidence-set machinery to journal and university rankings; serves as the accessible class-replication-style exposition.}
+}
+
+@misc{chetverikov_2024_csranks,
+  author        = {Chetverikov, Denis and Mogstad, Magne and Morgen, Pawe{\l} and Romano, Joseph P. and Shaikh, Azeem and Wilhelm, Daniel},
+  title         = {csranks: An {R} Package for Estimation and Inference Involving Ranks},
+  year          = {2024},
+  month         = jan,
+  howpublished  = {arXiv preprint arXiv:2401.15205},
+  eprint        = {2401.15205},
+  archivePrefix = {arXiv},
+  primaryClass  = {econ.EM},
+  url           = {https://arxiv.org/abs/2401.15205},
+  note          = {Replaces the prompt's "Hold and Stien ICRanks" reference, which does not appear to exist. csranks is the R package used in this project for rank inference.}
+}
+
+@article{chen_2018_mcconfidencesets,
+  author  = {Chen, Xiaohong and Christensen, Timothy M. and Tamer, Elie},
+  title   = {Monte Carlo Confidence Sets for Identified Sets},
+  journal = {Econometrica},
+  volume  = {86},
+  number  = {6},
+  pages   = {1965--2018},
+  year    = {2018},
+  month   = nov,
+  doi     = {10.3982/ECTA14525},
+  url     = {https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14525}
+}
+
+@article{swartzentruber_2026_risk_ambiguity,
+  author       = {Swartzentruber, Ryan and Sims, Charles},
+  title        = {Policy Uncertainty and Electric Utility Investments},
+  year         = {2026},
+  howpublished = {SSRN working paper 5404735; indexed at ScienceDirect S0140988326001532},
+  url          = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5404735},
+  note         = {The risk-vs-ambiguity distinction adopted in this project's policy-risk treatment draws on this paper, not on Bistline as originally framed. Citation attribution corrected after web verification.}
+}
+
+@techreport{bistline_2024_reform_options,
+  author      = {Bistline, John and Clausing, Kimberly and Mehrotra, Neil and Stock, James H. and Wolfram, Catherine},
+  title       = {Climate Policy Reform Options in 2025},
+  institution = {National Bureau of Economic Research},
+  number      = {32168},
+  type        = {NBER Working Paper},
+  year        = {2024},
+  url         = {https://www.nber.org/papers/w32168},
+  note        = {Closest recent Bistline paper located by web search on "energy investment under policy uncertainty 2024-2026." Addresses post-IRA federal climate policy reform options; does not adopt the formal risk-vs-ambiguity distinction. Included for completeness in case the project needs a Bistline anchor citation; the risk-vs-ambiguity methodology citation lives at swartzentruber\_2026\_risk\_ambiguity.}
+}
+
+@article{snyder_2006_facility_location,
+  author  = {Snyder, Lawrence V.},
+  title   = {Facility Location Under Uncertainty: A Review},
+  journal = {IIE Transactions},
+  volume  = {38},
+  number  = {7},
+  pages   = {547--564},
+  year    = {2006},
+  doi     = {10.1080/07408170500216480},
+  url     = {https://www.tandfonline.com/doi/abs/10.1080/07408170500216480}
+}
+
+% =============================================================================
+% Urban and regional economics anchor references
+% =============================================================================
+
+@article{slattery_2020_incentives_jep,
+  author  = {Slattery, Cailin R. and Zidar, Owen M.},
+  title   = {Evaluating State and Local Business Incentives},
+  journal = {Journal of Economic Perspectives},
+  volume  = {34},
+  number  = {2},
+  pages   = {90--118},
+  year    = {2020},
+  month   = may,
+  doi     = {10.1257/jep.34.2.90},
+  url     = {https://www.aeaweb.org/articles?id=10.1257/jep.34.2.90}
+}
+
+@techreport{bartik_2018_butfor,
+  author      = {Bartik, Timothy J.},
+  title       = {``But For'' Percentages for Economic Development Incentives: What percentage estimates are plausible based on the research literature?},
+  institution = {W.E. Upjohn Institute for Employment Research},
+  number      = {18-289},
+  type        = {Upjohn Institute Working Paper},
+  year        = {2018},
+  doi         = {10.17848/wp18-289},
+  url         = {https://research.upjohn.org/up_workingpapers/289/}
+}
+
+@book{bartik_2019_makingsense,
+  author    = {Bartik, Timothy J.},
+  title     = {Making Sense of Incentives: Taming Business Incentives to Promote Prosperity},
+  publisher = {W.E. Upjohn Institute for Employment Research},
+  address   = {Kalamazoo, MI},
+  year      = {2019},
+  doi       = {10.17848/9780880996693},
+  url       = {https://research.upjohn.org/up_press/258/}
+}
+
+@article{suarezserrato_2016_taxcuts,
+  author  = {Su\'arez Serrato, Juan Carlos and Zidar, Owen M.},
+  title   = {Who Benefits from State Corporate Tax Cuts? A Local Labor Markets Approach with Heterogeneous Firms},
+  journal = {American Economic Review},
+  volume  = {106},
+  number  = {9},
+  pages   = {2582--2624},
+  year    = {2016},
+  month   = sep,
+  doi     = {10.1257/aer.20141702},
+  url     = {https://www.aeaweb.org/articles?id=10.1257/aer.20141702}
+}
+
+@article{fajgelbaum_2019_spatial,
+  author  = {Fajgelbaum, Pablo D. and Morales, Eduardo and Su\'arez Serrato, Juan Carlos and Zidar, Owen M.},
+  title   = {State Taxes and Spatial Misallocation},
+  journal = {Review of Economic Studies},
+  volume  = {86},
+  number  = {1},
+  pages   = {333--376},
+  year    = {2019},
+  month   = jan,
+  doi     = {10.1093/restud/rdy050},
+  url     = {https://academic.oup.com/restud/article-abstract/86/1/333/5092478}
+}
+
+% Authorship of the 2025 TIRC report by Mark Partridge (Ohio State University,
+% economics) and Nick Messenger (Ohio River Valley Institute) confirmed via
+% reporting (WOSU 2025-12-12) and the report itself. A standalone
+% economist memo (11_30_EconomistReport2025.pdf) was also referenced on the
+% Auditor's site; if the intended citation is the standalone memo rather than
+% the umbrella TIRC report, update the title and URL accordingly.
+@techreport{partridge_2025_franklin,
+  author      = {Partridge, Mark and Messenger, Nicholas},
+  title       = {Tax Incentive Review Council Report 2025},
+  institution = {Franklin County Auditor's Office},
+  year        = {2025},
+  url         = {https://www.franklincountyauditor.com/AUDR-website/media/Documents/In\%20the\%20news/2025-TIRC-REPORT.pdf},
+  note        = {Documents a 143.3\% increase in foregone or diverted property tax revenue in Franklin County, OH since 2016, with annual cost of \$192 million in 2024.}
+}
+
+% =============================================================================
+% Host community and policy framework references
+% =============================================================================
+
+@misc{lade_2026_ohio_intro,
+  author       = {Lade, Gabriel E.},
+  title        = {Ohio's {AI} Boom: An Economist's Perspective on Data Centers},
+  howpublished = {Substack post, Gabriel E. Lade newsletter},
+  year         = {2026},
+  month        = mar,
+  day          = {10},
+  url          = {https://gelade1.substack.com/p/ohios-ai-boom-an-economists-perspective},
+  note         = {First in a four-part series on Ohio data centers.}
+}
+
+@misc{lade_2026_fiscal,
+  author       = {Lade, Gabriel E.},
+  title        = {Fiscal Costs of Data Centers},
+  howpublished = {Substack post, Gabriel E. Lade newsletter},
+  year         = {2026},
+  month        = mar,
+  day          = {12},
+  url          = {https://gelade1.substack.com/p/fiscal-costs-of-data-centers},
+  note         = {Second in a four-part series on Ohio data centers.}
+}
+
+@misc{lade_2026_local,
+  author       = {Lade, Gabriel E.},
+  title        = {Data Centers: What Stays Local, What Doesn't},
+  howpublished = {Substack post, Gabriel E. Lade newsletter},
+  year         = {2026},
+  month        = apr,
+  day          = {27},
+  url          = {https://gelade1.substack.com/p/data-centers-what-stays-local-what},
+  note         = {Third in a four-part series on Ohio data centers.}
+}
+
+@misc{lade_2026_infrastructure,
+  author       = {Lade, Gabriel E.},
+  title        = {Data Centers are Infrastructure},
+  howpublished = {Substack post, Gabriel E. Lade newsletter},
+  year         = {2026},
+  month        = may,
+  day          = {18},
+  url          = {https://gelade1.substack.com/p/data-centers-are-infrastructure},
+  note         = {Fourth in a four-part series on Ohio data centers.}
+}
+
+@misc{ross_2026_salestax,
+  author       = {Ross, Justin},
+  title        = {Sales Tax Exemptions for Data Centers Aren't Subsidies},
+  howpublished = {Substack post, Capital \& Capitol newsletter},
+  year         = {2026},
+  month        = feb,
+  day          = {23},
+  url          = {https://justinross.substack.com/p/sales-tax-exemptions-for-data-centers}
+}
+
+% =============================================================================
+% Complementary literature on data center electricity systems
+% =============================================================================
+
+% TODO: verify individual authorship. The published report page lists only the
+% three sponsoring organizations (Camus, encoord, Princeton ZERO Lab). The
+% prompt's author list (Atkinson, Brancucci, Jenkins, et al.) was not visible
+% on the report page; confirm before citing individuals.
+@techreport{atkinson_2025_flexible_datacenters,
+  author      = {{Camus Energy} and {encoord} and {Princeton ZERO Lab}},
+  title       = {Flexible Data Centers: A Faster, More Affordable Path to Power},
+  institution = {Camus Energy, encoord, and Princeton University ZERO Lab},
+  year        = {2025},
+  month       = dec,
+  url         = {https://www.camus.energy/flexible-data-center-report}
+}
+
+@techreport{synapse_2024_pjm_risks,
+  author      = {{Synapse Energy Economics}},
+  title       = {Risks of Rapid Data Center Growth in {PJM}},
+  institution = {Synapse Energy Economics, prepared for Sierra Club},
+  year        = {2024},
+  month       = dec,
+  number      = {24-089},
+  url         = {https://www.synapse-energy.com/sites/default/files/Final\%20PJM\%20Data\%20Center\%20Modeling\%20Results\%20(20241217)\%2024-089.pdf}
+}
+
+@misc{lu_2026_connectmanage,
+  author        = {Lu, Xin and Xu, Qianwen},
+  title         = {Grid Integration of Gigawatt-Scale {AI} Data Centers under Connect-and-Manage},
+  year          = {2026},
+  month         = may,
+  howpublished  = {arXiv preprint arXiv:2605.14109},
+  eprint        = {2605.14109},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.SY},
+  url           = {https://arxiv.org/abs/2605.14109}
+}
+
+@misc{li_2026_riskaware_transmission,
+  author        = {Li, Shaoze and Fang, Bohang and Chen, Cong},
+  title         = {Risk-Aware Allocation of Transmission Capacity for {AI} Data Centers},
+  year          = {2026},
+  month         = apr,
+  howpublished  = {arXiv preprint arXiv:2604.08854},
+  eprint        = {2604.08854},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.SY},
+  url           = {https://arxiv.org/abs/2604.08854}
+}
+
 @misc{cote_2025_lme,
-  author        = {Cote, Andrew and Sun, Xu Andy},
+  author        = {Cote, Luc and Sun, Andy},
   title         = {Locational Marginal Emissions for Carbon-Aware Data Center Operations in Large-Scale Power Grids},
   year          = {2025},
   month         = dec,
   howpublished  = {arXiv preprint arXiv:2512.18819},
   eprint        = {2512.18819},
   archivePrefix = {arXiv},
-  primaryClass  = {eess.SY},
+  primaryClass  = {math.OC},
   url           = {https://arxiv.org/abs/2512.18819}
 }
+
+% =============================================================================
+% Regulatory primary sources
+% =============================================================================
+
+@misc{ferc_2026_rm26_4_intent,
+  author       = {{Federal Energy Regulatory Commission}},
+  title        = {Order Regarding Intent to Act, Docket No. {RM26-4-000} (Interconnection of Large Loads to the Interstate Transmission System)},
+  howpublished = {FERC order},
+  year         = {2026},
+  month        = apr,
+  day          = {16},
+  url          = {https://www.ferc.gov/rm26-4},
+  note         = {Accessed 2026-05-19.}
+}
+
+@misc{ferc_2025_colocation_directive,
+  author       = {{Federal Energy Regulatory Commission}},
+  title        = {Order Directing {PJM} to Establish Terms and Conditions for Co-Location Arrangements},
+  howpublished = {FERC order, Docket No. {EL25-49-000} (show-cause proceeding)},
+  year         = {2025},
+  month        = dec,
+  day          = {18},
+  url          = {https://www.ferc.gov/news-events/news/ferc-directs-nations-largest-grid-operator-create-new-rules-embrace-innovation-and},
+  note         = {Accessed 2026-05-19. Primary docket confirmed via FERC press release and PJM filings. Subsequent compliance filings and tariff revisions sit in the same EL25-49-000 docket plus related ER26-XXXX-000 dockets.}
+}
+
+@misc{pjm_2026_btmg_compliance,
+  author       = {{PJM Interconnection, L.L.C.}},
+  title        = {Compliance Filing on Behind-the-Meter Generation Tariff Revisions},
+  howpublished = {Compliance filing at FERC in Docket No. {EL25-49-000} in response to the December 18, 2025 order on co-location arrangements},
+  year         = {2026},
+  month        = feb,
+  day          = {23},
+  url          = {https://www.ferc.gov/news-events/news/ferc-directs-nations-largest-grid-operator-create-new-rules-embrace-innovation-and},
+  note         = {Accessed 2026-05-19. TODO: the specific FERC eLibrary accession number for the February 23 2026 PJM BTMG compliance submission needs a direct eLibrary lookup at elibrary.ferc.gov by filer "PJM Interconnection" within docket EL25-49-000 on filing date 2026-02-23. The umbrella docket EL25-49-000 is confirmed; companion ER26-series dockets carry related tariff revisions.}
+}
+
+@misc{pjm_2026_eit_filing,
+  author       = {{PJM Interconnection, L.L.C.}},
+  title        = {Expedited Interconnection Track ({EIT}) Tariff Revisions for Generating Facilities},
+  howpublished = {Filing at FERC, Docket No. {ER26-1563-000}, requesting July 31, 2026 effective date},
+  year         = {2026},
+  month        = feb,
+  day          = {27},
+  url          = {https://www.pjm.com/pjmfiles/directory/etariff/FercDockets/9483/20260227-er26-1563-000.pdf},
+  note         = {Accessed 2026-05-19. Primary filing PDF linked. Allows up to 10 expedited interconnection requests per year for new or uprated Capacity Resources $\geq$250 MW.}
+}
+
+@techreport{pjm_2026_load_forecast,
+  author      = {{PJM Interconnection, L.L.C.}},
+  title       = {2026 {PJM} Load Forecast Report},
+  institution = {PJM Interconnection, L.L.C.},
+  year        = {2026},
+  month       = jan,
+  url         = {https://www.pjm.com/-/media/DotCom/library/reports-notices/load-forecast/2026-load-report.pdf}
+}
+
+@misc{pjm_2026_board_letter,
+  author       = {{PJM Board of Managers}},
+  title        = {Decisional Letter on the Critical Issue Fast Path Process for Large Load Additions},
+  howpublished = {Letter from PJM Board of Managers to PJM stakeholders},
+  year         = {2026},
+  month        = jan,
+  day          = {16},
+  url          = {https://www.pjm.com/-/media/DotCom/about-pjm/who-we-are/public-disclosures/2026/20260116-pjm-board-letter-re-results-of-the-cifp-process-large-load-additions.pdf}
+}
+
+@misc{md_opc_2026_complaint,
+  author       = {{Maryland Office of People's Counsel}},
+  title        = {Complaint of the Maryland Office of People's Counsel Regarding {PJM} Regional Transmission Expansion Plan Cost Allocation Rules},
+  howpublished = {FERC complaint filing, Docket No. EL26-XXX-000},
+  year         = {2026},
+  month        = may,
+  day          = {7},
+  url          = {https://opc.maryland.gov/Portals/0/Files/Publications/Others/20260507\%20-\%20RTEP\%20complaint\%20-\%20FINAL\%20932.pdf},
+  note         = {Accessed 2026-05-19. Primary complaint PDF linked. TODO: confirm exact FERC docket number by searching FERC eLibrary (elibrary.ferc.gov) by filer name "Maryland Office of People's Counsel" with filing date 2026-05-07; the docket is in the EL26-series but the specific middle digits could not be extracted from the binary-encoded PDF.}
+}
+
+@misc{whitehouse_2026_pjm_principles,
+  author       = {{White House National Energy Dominance Council} and {Governors of the PJM States}},
+  title        = {Statement of Principles Regarding {PJM}},
+  howpublished = {Joint statement signed by NEDC Chair Doug Burgum, NEDC Vice Chair Chris Wright, and the governors of 13 PJM-region states},
+  year         = {2026},
+  month        = jan,
+  day          = {15},
+  url          = {https://www.energy.gov/documents/statement-principles-regarding-pjm}
+}
+
+% =============================================================================
+% State legislative actions
+% =============================================================================
+
+% Note: prompt listed a "New Jersey SB 484" with a >=50 MW consumptive-use
+% permitting framework and foreign-controlled customer exclusion. No NJ bill
+% matching that substantive description was found by focused web search; SB 484
+% with the 50 MW consumptive-use framework is Florida law. Per user direction
+% on 2026-05-19, the entry was dropped rather than retained with a wrong
+% jurisdiction. New Jersey's active data center bills (S731/A796, S3379, S680,
+% A6181, SR18) use a 100 MW threshold and do not include consumptive-use
+% permitting or foreign-control exclusions.
+
+@misc{tx_sb6_2025,
+  author       = {{Texas Legislature}},
+  title        = {Senate Bill 6 (89th Regular Session) -- Large Load Interconnection and Curtailment for {ERCOT}},
+  howpublished = {Texas state legislation, signed by Gov. Abbott June 20, 2025},
+  year         = {2025},
+  month        = jun,
+  url          = {https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=SB6}
+}
+
+@misc{al_sb270_2025,
+  author       = {{Alabama Legislature}},
+  title        = {Senate Bill 270 (2026 Regular Session) -- Public Service Commission Review of Retail Electric Contracts with Large Load Data Centers},
+  howpublished = {Alabama state legislation introduced by Sen. Bell; enrolled; effective October 1, 2026},
+  year         = {2026},
+  url          = {https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/SB270-enr.pdf},
+  note         = {Accessed 2026-05-19. Applies to retail electric service contracts with large load data centers ($\geq$150 MW). Introduced text: https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/SB270-int.pdf}
+}
+
+@misc{me_ld713_2025,
+  author       = {{Maine Legislature} (132nd; sponsor Rep. Dan Sayre)},
+  title        = {{LD} 713 (P.L. Chapter 768) -- An Act to Exclude Data Centers from the Business Equipment Tax Exemption and the Dirigo Business Incentives Program and to Require the Department of Economic and Community Development to Study Financial Incentives for Data Centers},
+  howpublished = {Maine state legislation, signed by Gov. Janet Mills April 23, 2026},
+  year         = {2026},
+  month        = apr,
+  day          = {23},
+  url          = {https://www.mainelegislature.org/legis/bills/display_ps.asp?ld=713\&snum=132},
+  note         = {Accessed 2026-05-19. Excludes data centers beginning operation on or after August 1, 2026 from the Business Equipment Tax Exemption (BETE) and the Dirigo Business Incentive Program.}
+}
+
+@misc{nc_hb1063_2026,
+  author       = {{North Carolina General Assembly}},
+  title        = {House Bill 1063 -- Ratepayer and Resource Protection Act},
+  howpublished = {North Carolina state legislation, 2025--2026 session},
+  year         = {2026},
+  url          = {https://www.ncleg.gov/Sessions/2025/Bills/House/PDF/H1063v0.pdf},
+  note         = {Defines large data centers as facilities with $\geq$40 MW peak electricity demand or $\geq$1 billion liters annual water use.}
+}
+
+@misc{oh_orc_122_175_status,
+  author       = {{Ohio Revised Code}},
+  title        = {{ORC} \S 122.175 -- Tax Exemption for Sale, Storage, Use, or Other Consumption of Computer Data Center Equipment},
+  howpublished = {Ohio Revised Code section; status reflects Gov. DeWine veto of biennial budget repeal language and pending House override discussions},
+  year         = {2025},
+  url          = {https://codes.ohio.gov/ohio-revised-code/section-122.175},
+  note         = {Accessed 2026-05-19. Override vote on DeWine's veto pending in Ohio House as of access date.}
+}
+
+@misc{va_scc_gs5_2025,
+  author       = {{Virginia State Corporation Commission}},
+  title        = {Final Order in Dominion Energy Virginia Biennial Review (Case No. {PUR-2025-00058}): Approval of {GS-5} Rate Class for Large Loads},
+  howpublished = {Virginia SCC order},
+  year         = {2025},
+  month        = nov,
+  day          = {25},
+  url          = {https://www.scc.virginia.gov/about-the-scc/newsreleases/release/scc-issues-order-on-dev-biennial-review-2025/scc-rules-in-dev-biennial-review-case.html},
+  note         = {Accessed 2026-05-19. Case number PUR-2025-00058 confirmed via SCC docket search. Establishes new GS-5 rate class for customers with $\geq$25 MW demand, effective January 1, 2027; requires 14-year contracts and 85\% minimum demand charges.}
+}
+
+% =============================================================================
+% PJM market and capacity primary sources
+% =============================================================================
+
+@misc{pjm_capacity_auctions_2024_2027,
+  author       = {{PJM Interconnection, L.L.C.}},
+  title        = {Base Residual Auction Reports for the 2024/2025, 2025/2026, and 2026/2027 Delivery Years},
+  howpublished = {PJM Reliability Pricing Model auction reports},
+  year         = {2025},
+  url          = {https://www.pjm.com/markets-and-operations/rpm/rpm-auction-user-info},
+  note         = {Individual auction reports: 2024/2025 BRA cleared $28.92/MW-day RTO (https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2024-2025/2024-2025-base-residual-auction-report.ashx); 2025/2026 BRA cleared $269.92/MW-day RTO (https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2025-2026/2025-2026-base-residual-auction-report.pdf); 2026/2027 BRA cleared $329.17/MW-day across all LDAs at price cap (https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2026-2027/2026-2027-bra-report.pdf).}
+}
+
+@techreport{monitoring_analytics_2026_q1,
+  author      = {{Monitoring Analytics, LLC}},
+  title       = {2026 Quarterly State of the Market Report for {PJM}: January through March},
+  institution = {Monitoring Analytics, LLC, Independent Market Monitor for PJM},
+  year        = {2026},
+  url         = {https://www.monitoringanalytics.com/reports/PJM_State_of_the_Market/2026/2026q1-som-pjm.pdf}
+}
+
+% =============================================================================
+% Cross-cutting references on data center electricity demand
+% =============================================================================
 
 @techreport{shehabi_2024_lbnl,
   author      = {Shehabi, Arman and Smith, Sarah J. and Hubbard, Alex and Newkirk, Alex and Lei, Nuoa and Siddik, Md Abu Bakar and Holecek, Billie and Koomey, Jonathan and Masanet, Eric and Sartor, Dale},
@@ -32,6 +516,16 @@
   year        = {2024},
   month       = dec,
   url         = {https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report.pdf}
+}
+
+@techreport{brattle_esig_2026_largeloads_primer,
+  author      = {{The Brattle Group} and {Energy Systems Integration Group}},
+  title       = {Impacts of Large Loads on Electricity Rates: A Primer},
+  institution = {Energy Systems Integration Group, with experts from The Brattle Group},
+  year        = {2026},
+  month       = may,
+  day         = {12},
+  url         = {https://www.esig.energy/reports-briefs/rate-impacts-of-large-loads-primer/}
 }
 
 @techreport{jlarc_2024_vadcs,
@@ -52,4 +546,34 @@
   month       = apr,
   type        = {Whitepaper},
   url         = {https://www.brattle.com/wp-content/uploads/2025/04/Meeting-Unprecedented-Load-Growth-Challenges-Opportunities.pdf}
+}
+
+% =============================================================================
+% Additional methodology and supporting references
+% =============================================================================
+
+@article{bulan_2009_realoptions,
+  author  = {Bulan, Laarni and Mayer, Christopher and Somerville, C. Tsuriel},
+  title   = {Irreversible Investment, Real Options, and Competition: Evidence from Real Estate Development},
+  journal = {Journal of Urban Economics},
+  volume  = {65},
+  number  = {3},
+  pages   = {237--251},
+  year    = {2009},
+  month   = may,
+  doi     = {10.1016/j.jue.2008.03.003},
+  url     = {https://ideas.repec.org/a/eee/juecon/v65y2009i3p237-251.html}
+}
+
+@article{silerevans_2012_mef,
+  author  = {Siler-Evans, Kyle and Azevedo, In{\^e}s Lima and Morgan, M. Granger},
+  title   = {Marginal Emissions Factors for the {U.S.} Electricity System},
+  journal = {Environmental Science \& Technology},
+  volume  = {46},
+  number  = {9},
+  pages   = {4742--4748},
+  year    = {2012},
+  month   = may,
+  doi     = {10.1021/es300145v},
+  url     = {https://pubs.acs.org/doi/abs/10.1021/es300145v}
 }

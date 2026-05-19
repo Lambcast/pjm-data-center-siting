@@ -40,3 +40,9 @@ data/raw/*
 # Reference PDFs (keep README tracked, ignore PDFs for copyright reasons)
 docs/references_pdfs/*
 !docs/references_pdfs/README.md
+
+# Local PDF copies of cited papers (references/ folder added during framing lock)
+references/*.pdf
+references/*.docx
+!references/.gitkeep
+!references/README.md

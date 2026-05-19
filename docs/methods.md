@@ -1,19 +1,27 @@
 # Methods
 
-Detailed methodology notes. To be filled in as the model is constructed.
+Detailed methodology notes. Section placeholders below describe what each section will contain; the technical detail fills in during week-one execution and afterward.
 
-## Data sources
+## Cost components and monetization approach
 
-*(To be filled in.)*
+This section will document how each of the six cost components in the NPV stack is computed and converted to a present-value dollar contribution. Energy costs use locational marginal price data at the nodal or zonal level, scaled to a representative facility load profile. Capacity costs use PJM Base Residual Auction clearing prices by Locational Deliverability Area, scaled to a UCAP obligation derived from facility nameplate and an assumed capacity performance ratio. Interconnection costs draw on public network-upgrade allocation studies where available and a heuristic markup over a voltage-class proxy where not. Property tax costs apply state and county effective rates to a transparent assessed-value model. Carbon costs apply the base $100/tCO2 price (and the $190/tCO2 EPA SCC comparison) to grid emissions intensity at the relevant node or zone. Policy risk costs are described in the dedicated section below. Each component is computed annually over the 20-year facility life and discounted to present value at the nominal discount rate. The aim throughout is transparency in unit conventions and computation steps so a reviewer can replicate each cost line from public inputs.
 
-## Model construction
+## Site selection methodology
 
-*(To be filled in.)*
+To be filled in once week-one site selection is complete. The criteria under consideration include coverage across PJM Locational Deliverability Areas, jurisdictional variation in state policy regime (Virginia GS-5 vs. Ohio sales tax exemption status vs. North Carolina HB 1063 vs. others), proximity to existing transmission and dispatchable generation for the behind-the-meter cases, zoning regime and known approval friction, water availability, and counterfactual data-center activity already disclosed by hyperscalers. The list locks at the end of week one and is not revised thereafter. The final list, the selection criteria as actually applied, and the rationale for each inclusion will be documented in this section.
 
-## Policy risk scoring methodology
+## Parameter distributions for Monte Carlo
 
-*(To be filled in.)*
+This section will document the probability distributions assigned to each input parameter for the Monte Carlo step. Candidate parameters include LMP forecasts (joint distribution across nodes, calibrated to historical correlation structure), capacity prices by LDA (correlated across zones, with a regime indicator for the post-2024 demand-growth shock visible in the 2025/26 and 2026/27 BRA results), interconnection cost (right-skewed; tail captures uncertain network upgrade allocation), property tax effective rate (uniform within reported county band), carbon price (point in base case, distribution in sensitivity), and policy risk probability and impact (per the policy risk scoring framework below). Each distribution is reported here with its source. Monte Carlo draws serve two purposes: computing expected NPV at each site and supplying the covariance matrix that feeds the rank inference step.
 
-## Sensitivity analysis methodology
+## Rank inference via Mogstad et al. (2024)
 
-*(To be filled in.)*
+Site rankings are reported with simultaneous confidence sets constructed following Mogstad, Romano, Shaikh, and Wilhelm (2024) in *Review of Economic Studies*. The procedure is implemented via the `csranks` R package (Chetverikov, Mogstad, Morgen, Romano, Shaikh, and Wilhelm 2024), called from the Python pipeline as a subprocess. The covariance matrix between site NPVs, which the procedure requires as an input, is estimated from the Monte Carlo draws described in the previous section. This lets shared-exposure correlations flow into the confidence sets rather than being assumed away by an independence assumption. Both marginal confidence sets (the rank confidence set for each individual site) and simultaneous confidence sets (joint statements about which sites belong in the top *k*) are reported. Implementation details, including how the R subprocess call is wrapped and how output is parsed back into the Python pipeline, will be documented here.
+
+## Policy risk scoring framework
+
+This section will document how policy risks are identified, scored, and converted to expected dollar adjustments. For each site, identified policy risks are catalogued by jurisdiction (state, and county where relevant), categorized as quantifiable risk or unquantifiable ambiguity following Swartzentruber and Sims (2026), assigned a probability and a cost-impact range, and converted to an expected NPV adjustment in the relevant cost component. The risk-vs-ambiguity distinction is operational: jurisdictions with high ambiguity carry a separate priced cost line on top of the standard expected-value adjustment, reflecting the developer cost of an unknown probability distribution rather than a known one. Specific risks, probabilities, and impact ranges will be filled in alongside site selection, since the risks are site- and jurisdiction-specific.
+
+## Limitations and what the model does not address
+
+The model produces a developer-perspective cost ranking under transparent assumptions. It does not solve power flow, does not run a full project finance waterfall, does not forecast specific regulatory actions, and does not compute social welfare. It does not address ratepayer incidence, intra-PJM transmission cost allocation reform (which the Maryland OPC complaint and others raise at FERC), the public-finance consequences of property tax abatements (which Partridge and Messenger document for Franklin County, and which Lade discusses across his four-part Substack series), or the strategic interaction between developers competing for the same interconnection node. The "Eight things that need explicit treatment" section of [overview.md](overview.md) gives the canonical commitments and exclusions; this section is the operational counterpart from the methods side and will mirror those commitments as concrete modeling decisions become specific.
