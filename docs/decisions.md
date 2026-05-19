@@ -13,6 +13,16 @@ Format for each entry:
 
 ---
 
+## 2026-05-19: Report format committed to Brattle/JLARC/Synapse register
+
+- **Decision.** The primary written deliverable is a Brattle-style PDF report of roughly 25 to 40 pages including appendices, not an academic working paper. The lambcast post is a shorter derivative; the Vercel frontend is the interactive complement; the GitHub repository is the technical backbone.
+- **Options considered.** Academic working paper in the standard NBER/SSRN economics register; Brattle-style consulting report following the format conventions of Brattle, Synapse, and JLARC; hybrid producing both an academic version and a consulting version from a shared analytical core.
+- **Weighing.** The hybrid doubles the writing load for a five-week solo project and produces two artifacts neither audience reads natively. The academic working paper is the format I am most comfortable defending on technical content but is not the format the intended audience reads in the course of their work. Hyperscaler in-house energy strategy teams and developer-side hiring managers read Brattle, Synapse, and JLARC reports daily and academic papers rarely. Matching their working format is itself a signal that I understand who the work is for. The Brattle register also fits the stated voice preferences (plain prose, Mitchell and Baldwin register, clarity over sophistication) more naturally than the academic register, which rewards hedged construction and a literature-review front matter the consulting format does not require. SSRN accepts both registers and posting matches the prior pattern from the AI Infrastructure paper, so the citation infrastructure does not change with the format choice.
+- **Choice.** Brattle-style PDF report as the primary written deliverable. Lambcast post derived from it. SSRN posting for indexing. Academic working paper format not pursued.
+- **Rationale.** Format match to the audience is a signal of audience understanding. The Brattle register also aligns the writing voice with the stated preferences. The hybrid path is not worth its cost on a five-week timeline.
+
+---
+
 ## 2026-05-19: Carbon price re-characterization ($100 as researcher-chosen proxy)
 
 - **Decision.** Re-characterize the $100/tCO2 base case carbon price as a researcher-chosen approximation of the implicit shadow price major hyperscalers carry under 24/7 CFE commitments, not as a published hyperscaler internal fee.

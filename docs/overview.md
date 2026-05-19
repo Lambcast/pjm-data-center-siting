@@ -75,16 +75,23 @@ The framing below names the eight commitments that bound the scope of this paper
 7. **Site list locked at end of week one.** Once the twenty candidate sites are selected, no additions are made. Data acquisition, modeling, sensitivities, and frontend pre-computation all target a fixed site list.
 8. **Lade framing as one side of a structured negotiation.** The work positions the developer-side cost ranking as one side of a structured negotiation between hyperscalers and host communities. It is not offered as an answer to the public-side policy question of whether, where, or on what terms communities should accept data centers.
 
+## Deliverables
+
+The project ships four artifacts. The primary written deliverable is a Brattle-style PDF report of roughly 25 to 40 pages including appendices, hosted on lambcast.net and posted to SSRN for indexing and citation infrastructure. The report opens with an executive summary stating findings, follows with context on the policy environment, presents the model approach at a high level, develops findings in the bulk of the document, articulates implications for developers and host communities, and reserves the methods specification for a later section or appendix. This matches the format used by Brattle, Synapse, and JLARC for similar analyses and matches what the intended audience reads in the course of their work. The lambcast post is the second deliverable, derived from the report as a shorter, less formal adaptation of the executive summary and selected findings, roughly 3,000 to 5,000 words. The interactive frontend on Vercel is the third deliverable, allowing readers to test their own assumptions against the pre-computed parameter grid. The GitHub repository is the fourth deliverable, hosting the code, the data pipeline, the methods note, the references file, and the downloadable PDF of the report.
+
 ## Timeline
 
-| Week | Focus |
-|---|---|
-| 1 | Literature survey, data acquisition, site list locked |
-| 2 | Model construction |
-| 3 | Sensitivity analysis and pre-computation |
-| 4 | Frontend (React/Vite, Vercel) |
-| 5 | Writeup |
-| 6 | Buffer |
+**Week 1.** Site selection methodology, locked 20-site list, PJM Data Miner API registration and initial data pulls, county property tax data, candidate parcel verification.
+
+**Week 2.** Cost-stack functions in `src/pjm_siting/`, unit tests, policy risk scoring table by state and county, parameter distributions specified.
+
+**Week 3.** Full sensitivity grid, Mogstad rank inference via R subprocess, Monte Carlo covariance construction, pre-computed scenarios for the frontend, methodology and appendix sections of the report drafted as the analysis is done.
+
+**Week 4.** React/Vite frontend with parameter sliders and ranked site display, Vercel deployment, findings section of the report drafted as the parameter grid finalizes.
+
+**Week 5.** Executive summary, context, and implications sections of the report drafted; lambcast post derived from the report; SSRN submission by end of week; GitHub README polished.
+
+**Week 6 (buffer).** SSRN revision and re-posting if needed; public launch coordinated across lambcast post, SSRN paper, frontend, and repo.
 
 ## Risks and known limitations
 
