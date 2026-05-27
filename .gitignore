@@ -46,3 +46,5 @@ references/*.pdf
 references/*.docx
 !references/.gitkeep
 !references/README.md
+
+.claude/
