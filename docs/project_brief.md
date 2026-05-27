@@ -34,15 +34,11 @@ The contribution is the developer-perspective ranking and the explicit policy-ri
 
 **Site selection universe.** Form 860 (2024 release) loaded and filtered. 16,132 nationwide plants reduced to 2,234 PJM-footprint plants reduced to 480 candidate plants at transmission voltages (138 kV and above). State-by-voltage stratification matrix in notebooks/01_eia860_exploration.ipynb. PA, VA, IL, OH, MD hold most of the high-voltage mass.
 
-**API integration baseline.** Subscription key authentication via Ocp-Apim-Subscription-Key header confirmed. Standard tier pulls with pnode_id filter work. Archive tier (older than ~16-24 months from current date; exact boundary TBD) rejects pnode_id filter; must use date plus type plus row_is_current plus version_nbr filters only. Maximum 50,000 rows per response. Rate limit 6 requests per minute for non-members.
+**API integration baseline.** Subscription key authentication via Ocp-Apim-Subscription-Key header confirmed. Standard tier accepts pnode_id; archive tier rejects pnode_id and requires date plus type plus row_is_current plus version_nbr filters with client-side narrowing on pnode. Archive boundary confirmed empirically at exactly 731 days back from current date, matching the metadata field; today's effective boundary is 2024-05-26. Maximum 50,000 rows per response. Rate limit 6 requests per minute for non-members. Client module shipped as src/pjm_siting/pjm_api.py (200 lines) with live-API tests at tests/test_pjm_api.py; committed as 2d627e0.
 
 ## Not yet decided
 
 **20-site list.** Universe is 480; need final cut to 20. Stratification logic must cover the six major PJM operating zones (Dominion, AEP, COMED, PSEG, PPL, BGE/PEPCO) with at least one congestion-discount and one congestion-premium site per zone where data supports it. Two BTM sites identified (Susquehanna; second TBD). Final cut needs LMP history to identify congestion regimes, which requires either standard-tier pulls for recent years or archive-tier pulls for 2022-2023.
-
-**Archive boundary.** Empirically: February 2025 is archive, May 2026 is standard. Need to pin down the exact cutoff before designing the 2022-2025 pull strategy. Probably end of week 1 or start of week 2.
-
-**Pull strategy for archived data.** Two options on the table: (a) pull archived years without pnode_id filter and narrow client-side (high volume, longer pulls); (b) restrict historical window to ~24 months in standard tier (smaller LMP sample but cleaner pulls). Decision deferred until archive boundary is pinned.
 
 **Carbon price internal logic.** $100/tCO2 base case is researcher-chosen approximation of implicit shadow price under 24/7 CFE commitments, not Microsoft's $15/ton internal fee. The justification language for the report needs careful drafting; the carbon price is the most contestable input and needs to be defended explicitly.
 
