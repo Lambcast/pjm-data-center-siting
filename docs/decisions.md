@@ -13,6 +13,46 @@ Format for each entry:
 
 ---
 
+## 2026-05-27: EIA Form 860 (2024 release) loaded; 480-plant transmission-voltage candidate pool
+
+- **Decision.** Use EIA Form 860 (2024 release) as the source for the candidate site universe. Filter to PJM balancing authority, then to plants connected at transmission voltages (138 kV and above). Use Form 860's Transmission or Distribution System Owner field as the direct generation-to-PJM-zone mapping. Defer HIFLD substation data as a possible later supplement rather than the primary geographic source for site selection.
+- **Options considered.** EIA Form 860 with a 138 kV-and-above transmission filter (chosen); Form 860 with a broader voltage threshold to retain more candidates; HIFLD substation layer as the primary geographic source with Form 860 used only for ownership and generator attributes; PJM's published substation list as the primary source (CEII-restricted; coordinates not public).
+- **Weighing.** Form 860 is updated annually, includes coordinates, and carries the Transmission or Distribution System Owner field that yields a direct mapping from each candidate plant to a PJM operating zone without a manual cross-walk. The 138 kV threshold is the conventional cut for "could plausibly host a 500 MW interconnection" and reduces 2,234 PJM-footprint plants to 480 candidates concentrated in PA, VA, IL, OH, and MD. A lower threshold inflates the candidate set with sites that cannot realistically host a hyperscale interconnection. HIFLD has more substation points than Form 860 has plants, but it lacks ownership and generator attributes and would still require manual zonal assignment.
+- **Choice.** Form 860 (2024) with PJM-balancing-authority filter and the 138 kV-and-above voltage filter. 480 candidate plants. State-by-voltage stratification matrix in `notebooks/01_eia860_exploration.ipynb`.
+- **Rationale.** A single source supplies everything first-pass site scoring needs: location, voltage, ownership, and zonal assignment. HIFLD is held in reserve for the case where a substation-level (rather than plant-adjacent) candidate becomes necessary downstream.
+
+---
+
+## 2026-05-27: PJM Data Miner 2 Non-Member API access provisioned and confirmed working
+
+- **Decision.** Use the PJM Data Miner 2 Non-Member API as the source for LMP and capacity-market data, authenticated via subscription key. Production endpoint is `https://api.pjm.com/api/v1/`. The subscription key is stored in `.env` (gitignored) and loaded via `python-dotenv`. Access was provisioned on 2026-05-26 and confirmed end-to-end on 2026-05-27 against metadata and a 24-row WESTERN HUB day-ahead LMP pull.
+- **Options considered.** Non-Member API (chosen; free, 6 requests per minute); Associate Member API ($2,500/year, 600 requests per minute); manual CSV downloads from the Data Miner 2 web UI; third-party scraped LMP archives.
+- **Weighing.** Associate membership lifts the rate cap but is not justified at this scope: 6 requests per minute is slow but workable for a one-time historical pull. Manual CSV downloads are not reproducible. Third-party archives carry data-provenance risk and require separate validation against PJM's published series. The non-member API is the authoritative source with a defensible audit trail; the rate limit shapes pull design rather than blocking it.
+- **Choice.** Non-Member API. Authentication via the `Ocp-Apim-Subscription-Key` header. Standard-tier requests accept a `pnode_id` filter; archive-tier requests reject `pnode_id` and require filtering by `datetime_beginning_ept` plus `type`, `row_is_current`, and `version_nbr`. Maximum 50,000 rows per response. Archive boundary empirically between February 2025 and May 2026; exact cutoff TBD before the historical pull strategy is finalized.
+- **Rationale.** The free tier is sufficient for a one-time historical pull at this scope. The `pnode_id` restriction on archived data shapes the historical pull strategy but does not foreclose it. An upgrade to Associate membership can be revisited only if a substantive bottleneck emerges; none has.
+
+---
+
+## 2026-05-27: Archive boundary pinned empirically to a rolling 731 days
+
+- **Decision.** Treat the standard/archive boundary on `da_hrl_lmps` as exactly `today - 731 days`, matching the `archiveCutoffDays: 731` value PJM returns in the feed metadata. Use this constant (`ARCHIVE_CUTOFF_DAYS = 731`) for routing in the API client.
+- **Options considered.** Trust the metadata field as authoritative (chosen); leave the cutoff as TBD pending more empirical probing; pad the cutoff inward (say 720 days) to leave headroom in case PJM's accounting is non-inclusive at the boundary.
+- **Weighing.** Probes on 2026-05-27 at 2024-05-25, 2024-05-29, 2025-01-01, and 2025-06-01 returned ARCHIVE_REJECT, OK, OK, OK respectively. The boundary sits exactly between 2024-05-25 and 2024-05-29, which is `today - 731 days = 2024-05-26`. Padding inward sacrifices recent archive data for no observed benefit; PJM's metadata and the empirical probes agree to within one day. The earlier note that "yesterday's 2025-02-01 pull returned archive error" appears to have been a misremembered date: the actual failed probe in `notebooks/01_eia860_exploration.ipynb` was 2024-01-15, which is deep archive territory and consistent with the 731-day rule.
+- **Choice.** `ARCHIVE_CUTOFF_DAYS = 731` as a module constant in `src/pjm_siting/pjm_api.py`. Routing logic: if any part of a request range is older than `today - 731 days`, that segment must use archive-tier filters (no `pnode_id`; require `type` plus `row_is_current` plus `version_nbr`); requests at or after the boundary use the standard-tier filters.
+- **Rationale.** The metadata field is authoritative and matches direct probing. No need to keep this as TBD or to pad.
+
+---
+
+## 2026-05-27: PJM data redistribution boundary and frontend output scope
+
+- **Decision.** Treat the PJM Data Miner Non-Member terms (internal business use only; redistribution requires a separate license) as a hard constraint on what reaches the frontend and the report. Publish only derived outputs: NPVs, rankings, confidence sets, and summary statistics. Do not republish raw LMPs or capacity-market prices. Exclude raw data files from the repository via `.gitignore`.
+- **Options considered.** Strict no-republication of raw inputs (chosen); republish raw data with attribution under a fair-use argument; pursue a separate redistribution license from PJM; restrict the frontend to PJM-member readers.
+- **Weighing.** PJM's terms are explicit, and the precedent set by Brattle, Synapse, and IEEFA in their public reports is to publish only derived outputs and let readers replicate against PJM directly. A fair-use argument is not winnable and would put the lambcast post and the SSRN deposit at risk. A separate license is overkill for a portfolio project. Restricting the frontend to members defeats the public-facing purpose of the work. The restriction has no practical effect on the analytical contribution; rankings and NPVs are the products that matter.
+- **Choice.** Vercel frontend serves only derived outputs (NPVs, rankings, confidence sets, summary statistics). Raw LMPs and capacity prices are not republished in the frontend, the report, or the repository. Repository `.gitignore` excludes raw data files.
+- **Rationale.** Compliance with PJM's terms is non-negotiable. The deliverables the audience cares about (rankings under transparent assumptions, sensitivity analysis) do not require republishing raw inputs. Documented methodology plus a pointer to PJM as the source lets any reader replicate the analysis independently.
+
+---
+
 ## 2026-05-19: Report format committed to Brattle/JLARC/Synapse register
 
 - **Decision.** The primary written deliverable is a Brattle-style PDF report of roughly 25 to 40 pages including appendices, not an academic working paper. The lambcast post is a shorter derivative; the Vercel frontend is the interactive complement; the GitHub repository is the technical backbone.
