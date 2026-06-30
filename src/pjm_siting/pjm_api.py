@@ -142,7 +142,12 @@ class PJMClient:
         return (
             pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
         )
-
+    
+    def pull_pnodes(self) -> pd.DataFrame:
+        """Pull the PJM pricing node directory from the ``pnode`` feed."""
+        params = {"format": "json"}
+        return pd.DataFrame(list(self._paginate("pnode", params)))
+    
     def _fetch_range(
         self,
         pnode_id: int,
